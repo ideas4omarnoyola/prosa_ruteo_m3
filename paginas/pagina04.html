@@ -408,15 +408,15 @@
     <img class="elementos" id="pop8" src="../img/pagina04/pop8.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="pop9" src="../img/pagina04/pop9.png" data-posX="0" data-posY="0" alt="">
 
-    <img class="elementos botonCerrar" id="cerrar1" src="../img/pagina04/cerrar.png" data-posX="586" data-posY="301" alt="">
-    <img class="elementos botonCerrar" id="cerrar2" src="../img/pagina04/cerrar.png" data-posX="680" data-posY="319" alt="">
-    <img class="elementos botonCerrar" id="cerrar3" src="../img/pagina04/cerrar.png" data-posX="726" data-posY="319" alt="">
-    <img class="elementos botonCerrar" id="cerrar4" src="../img/pagina04/cerrar.png" data-posX="784" data-posY="319" alt="">
-    <img class="elementos botonCerrar" id="cerrar5" src="../img/pagina04/cerrar.png" data-posX="892" data-posY="330" alt="">
-    <img class="elementos botonCerrar" id="cerrar6" src="../img/pagina04/cerrar.png" data-posX="709" data-posY="186" alt="">
-    <img class="elementos botonCerrar" id="cerrar7" src="../img/pagina04/cerrar.png" data-posX="792" data-posY="168" alt="">
-    <img class="elementos botonCerrar" id="cerrar8" src="../img/pagina04/cerrar.png" data-posX="683" data-posY="418" alt="">
-    <img class="elementos botonCerrar" id="cerrar9" src="../img/pagina04/cerrar.png" data-posX="614" data-posY="407" alt="">
+    <img class="elementos botonCerrar" id="cerrar1" src="../img/pagina04/cerrar.png" data-posX="615" data-posY="329" alt="">
+    <img class="elementos botonCerrar" id="cerrar2" src="../img/pagina04/cerrar.png" data-posX="721" data-posY="334" alt="">
+    <img class="elementos botonCerrar" id="cerrar3" src="../img/pagina04/cerrar.png" data-posX="768" data-posY="334" alt="">
+    <img class="elementos botonCerrar" id="cerrar4" src="../img/pagina04/cerrar.png" data-posX="826" data-posY="334" alt="">
+    <img class="elementos botonCerrar" id="cerrar5" src="../img/pagina04/cerrar.png" data-posX="933" data-posY="343" alt="">
+    <img class="elementos botonCerrar" id="cerrar6" src="../img/pagina04/cerrar.png" data-posX="704" data-posY="168" alt="">
+    <img class="elementos botonCerrar" id="cerrar7" src="../img/pagina04/cerrar.png" data-posX="783" data-posY="157" alt="">
+    <img class="elementos botonCerrar" id="cerrar8" src="../img/pagina04/cerrar.png" data-posX="699" data-posY="431" alt="">
+    <img class="elementos botonCerrar" id="cerrar9" src="../img/pagina04/cerrar.png" data-posX="664" data-posY="422" alt="">
 
 
     <!-- Script de la página -->
@@ -493,7 +493,6 @@
             aplicacion.reproducirAudio(audio[0], dialogo, 1);
             animacionEntrada(texto, 'default', 1, 1);
             animacionEntrada(botones, 'default', 1, 1);
-            animacionEntrada(d1, 'default', 1, 1);
 
             animacionEntrada(robot, 'default', 1, 1);
             setTimeout(()=>{
@@ -504,6 +503,7 @@
 
         function dialogo(){
             aplicacion.reproducirAudio(audio[1], botonera, 1);
+            animacionEntrada(d1, 'default', 1);
 
             pausarHablar();
             setTimeout(()=>{

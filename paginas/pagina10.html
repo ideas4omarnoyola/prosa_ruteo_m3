@@ -398,7 +398,7 @@
     <img class="elementos" id="d3" src="../img/pagina10/d3.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="comenzar" src="../img/pagina10/comenzar.png" data-posX="590" data-posY="102" alt="">
 
-    <div class="elementos" id="barraP1" data-posX="267" data-posY="179"></div>
+    <div class="elementos" id="barraP1" data-posX="267" data-posY="149"></div>
     <div class="elementos" id="barraP2" data-posX="774" data-posY="339"></div>
 
     <img class="elementos" id="p1" src="../img/pagina10/p1.png" data-posX="0" data-posY="0" alt="">
@@ -406,7 +406,7 @@
     <img class="elementos" id="p3" src="../img/pagina10/p3.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="p4" src="../img/pagina10/p4.png" data-posX="0" data-posY="0" alt="">
 
-    <img class="elementos respuestas" id="r1_a" data-respuesta="m" src="../img/pagina10/r1_a.png" data-posX="343" data-posY="165" alt="">
+    <img class="elementos respuestas" id="r1_a" data-respuesta="m" src="../img/pagina10/r1_a.png" data-posX="363" data-posY="165" alt="">
     <img class="elementos respuestas" id="r1_b" data-respuesta="m" src="../img/pagina10/r1_b.png" data-posX="370" data-posY="274" alt="">
     <img class="elementos respuestas" id="r1_c" data-respuesta="b" src="../img/pagina10/r1_c.png" data-posX="394" data-posY="361" alt="">
 
@@ -500,6 +500,7 @@
             new Audio('../audios/PROSA_INT_RUTEO_M3_10_04.mp3'),
             new Audio('../audios/PROSA_INT_RUTEO_M3_10_05.mp3'),
             new Audio('../audios/PROSA_INT_RUTEO_M3_10_06.mp3'),
+            new Audio('../audios/s_laser.mp3'),
         ]
 
         // Al cargarse la página
@@ -605,6 +606,7 @@
                   animacionSalida(rB[indexPreguntas], 'default', 1);
                   
                   const respuesta = $(this).data('respuesta');
+                  audio[6].play();
 
                   if(indexPreguntas < 2){
                       animacionSalida(rC[indexPreguntas], 'default', 1);

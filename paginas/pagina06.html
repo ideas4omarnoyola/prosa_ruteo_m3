@@ -393,9 +393,9 @@
         <img src="../img/pagina06/abc.png"/>
     </a>
     
-    <img class="elementos botones" id="boton1" src="../img/pagina06/boton1.png" data-posX="478" data-posY="247" alt="">
-    <img class="elementos botones" id="boton2" src="../img/pagina06/boton2.png" data-posX="478" data-posY="277" alt="">
-    <img class="elementos botones" id="boton3" src="../img/pagina06/boton3.png" data-posX="478" data-posY="307" alt="">
+    <img class="elementos botones" id="boton1" data-index="0" src="../img/pagina06/boton1.png" data-posX="478" data-posY="247" alt="">
+    <img class="elementos botones" id="boton2" data-index="1" src="../img/pagina06/boton2.png" data-posX="478" data-posY="277" alt="">
+    <img class="elementos botones" id="boton3" data-index="2" src="../img/pagina06/boton3.png" data-posX="478" data-posY="307" alt="">
     <img class="elementos" id="pop1" src="../img/pagina06/pop1.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="pop2" src="../img/pagina06/pop2.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="pop3" src="../img/pagina06/pop3.png" data-posX="0" data-posY="0" alt="">
@@ -430,6 +430,7 @@
         const botonActivo = [boton1, boton2, boton3];
 
         let indexPop = 0;
+        let botonesActivos = false;
 
         // Audios------------------------------------------------------
         const audio = [
@@ -481,6 +482,7 @@
         function activarCajero() {
             pararHablar();  
             animacionEntrada(abc, 'arriba-abajo', 1, 1);
+            animacionSalida(d2, 'arriba-abajo', 1);
             botonera();
         }
 
@@ -491,6 +493,11 @@
         botones.each(function(){
             $(this).click(function(){
                 if($(this).css('cursor') == 'pointer'){
+
+                    if(botonesActivos){
+                        indexPop = $(this).data('index');
+                    }
+
                     animacionEntrada(pops[indexPop], 'default', 1, 1);
                     dejarParpadear($(this));
                     
@@ -511,7 +518,10 @@
                     dejarParpadear($(this));                    
                     animacionSalida(pops[indexPop], 'default', 1, 1);
                     animacionSalida(cerrar[indexPop], 'default', 1, 1);
-                    siguiente();
+                    
+                    if(!botonesActivos){
+                        siguiente();
+                    }
                 }
             });
         });
@@ -525,10 +535,14 @@
             }
             else{
                 aplicacion.terminaPantalla();
+                activarBotones();
             }
         }
 
-        
+        function activarBotones(){
+            botones.css('cursor', 'pointer');
+            botonesActivos = true;
+        }
 
     </script>
 </body>

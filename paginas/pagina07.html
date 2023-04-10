@@ -389,9 +389,9 @@
     <img class="elementos" id="d1" src="../img/pagina07/d1.png" data-posX="0" data-posY="0"/>
     <img class="elementos" id="d2" src="../img/pagina07/d2.png" data-posX="0" data-posY="0"/>
     
-    <img class="elementos botones" id="boton1" src="../img/pagina07/boton1.png" data-posX="689" data-posY="279" alt="">
-    <img class="elementos botones" id="boton2" src="../img/pagina07/boton2.png" data-posX="421" data-posY="393" alt="">
-    <img class="elementos botones" id="boton3" src="../img/pagina07/boton3.png" data-posX="800" data-posY="468" alt="">
+    <img class="elementos botones" id="boton1" data-index="0" src="../img/pagina07/boton1.png" data-posX="689" data-posY="279" alt="">
+    <img class="elementos botones" id="boton2" data-index="1" src="../img/pagina07/boton2.png" data-posX="421" data-posY="393" alt="">
+    <img class="elementos botones" id="boton3" data-index="2" src="../img/pagina07/boton3.png" data-posX="800" data-posY="468" alt="">
     <img class="elementos" id="pop1" src="../img/pagina07/pop1.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="pop2" src="../img/pagina07/pop2.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="pop3" src="../img/pagina07/pop3.png" data-posX="0" data-posY="0" alt="">
@@ -426,6 +426,7 @@
         const botonActivo = [boton1, boton2, boton3];
 
         let indexPop = 0;
+        let botonesActivos = false;
 
         // Audios------------------------------------------------------
         const audio = [
@@ -475,9 +476,17 @@
         botones.each(function(){
             $(this).click(function(){
                 if($(this).css('cursor') == 'pointer'){
+
+                    if(botonesActivos){
+                        indexPop = $(this).data('index');
+                    }
+                    else{
+                        dejarParpadear($(this));
+                    }
+
                     aplicacion.reproducirAudio(audioPop[indexPop], cerrarPop, 1);
                     animacionEntrada(pops[indexPop], 'default', 1, 1);
-                    dejarParpadear($(this));
+                    
                     
                     setTimeout(()=>{
                       reanudarHablar();
@@ -497,7 +506,10 @@
                     dejarParpadear($(this));                    
                     animacionSalida(pops[indexPop], 'default', 1, 1);
                     animacionSalida(cerrar[indexPop], 'default', 1, 1);
-                    siguiente();
+                    
+                    if(!botonesActivos){
+                        siguiente();
+                    }
                 }
             });
         });
@@ -521,7 +533,13 @@
         }
 
         function salida(){
+            activarBotones();
             aplicacion.terminaPantalla();
+        }
+
+        function activarBotones(){
+            botones.css('cursor', 'pointer');
+            botonesActivos = true;
         }
 
     </script>
