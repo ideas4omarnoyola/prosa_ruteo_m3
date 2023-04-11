@@ -394,6 +394,7 @@
 
     <img class="elementos drops" id="drop2" data-lugar="2" src="../img/pagina09/drop.png" data-posX="377" data-posY="226" alt="">
     <img class="elementos infos" id="info2" src="../img/pagina09/info2.png" data-posX="400" data-posY="260" alt="">
+    <img class="elementos infos" id="dia" src="../img/pagina09/dia.png" data-posX="462" data-posY="358" alt="">
     
     <img class="elementos drops" id="drop3" data-lugar="3" src="../img/pagina09/drop.png" data-posX="577" data-posY="196" alt="">
     <img class="elementos infos" id="info3" src="../img/pagina09/info3.png" data-posX="600" data-posY="230" alt="">    
@@ -417,6 +418,7 @@
         const d1 = $('#d1');
         const d2 = $('#d2');
         const d3 = $('#d3');
+        const dia = $('#dia');
 
         const drags = $('.drags');
         const drops = $('.drops');
@@ -534,10 +536,12 @@
             
             if(dropSelect == '2'){
                 animacionEntrada(info2, 'default', 1);
+                animacionEntrada(dia, 'default', 1);
             }
             
             if(dropSelect == '3'){
                 animacionEntrada(info3, 'default', 1);
+                animacionSalida(dia, 'default', 1);
             }
             
             if(dropSelect == '4'){
